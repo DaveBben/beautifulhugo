@@ -27,8 +27,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <!-- Site Title, Description, Author, and Favicon -->
+{{ if .IsHome }} <title>{{ $.Site.Title  }} - A Blog of Dave Bennett </title>
+{{ else }}  <title>{{ .Title }} - {{ .Site.Title }}</title> {{ end }}
+
 {{- with ($.Scratch.Get "Title") }}
-  <title>{{ . }} - {{ $.Site.Title }}</title>
   <meta property="og:title" content="{{ . }}" />
   <meta name="twitter:title" content="{{ . | truncate 70 }}" />
 {{- end }}
