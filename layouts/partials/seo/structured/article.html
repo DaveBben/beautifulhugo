@@ -3,6 +3,7 @@
   "@context": "http://schema.org",
   "@type": "Article",
   "author": {
+	"@type": "Person",
     "name" : "{{ if .Params.author -}}{{ .Params.author }}{{- else if .Site.Author.name -}}{{ .Site.Author.name }}{{- end }}"
   },
   "headline": "{{ .Title }}",
@@ -16,7 +17,7 @@
   "mainEntityOfPage" : "{{ .Permalink }}",
   "publisher" : {
     "@type": "Organization",
-    "name" : "{{ .Site.BaseURL }}",
+    "name" : "{{ .Site.Title }}",
     "logo" : {
         "@type" : "ImageObject",
         "url" : "{{ .Site.Params.logo | absURL }}",
